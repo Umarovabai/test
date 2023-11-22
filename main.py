@@ -21,15 +21,14 @@ class BettingApp(QMainWindow):
         self.table_widget.setHorizontalHeaderLabels(['Account ID', 'Balance'])
         self.layout.addWidget(self.table_widget)
 
-        # Загрузка данных в таблицу (замените эту функцию своей логикой)
+        # Загрузка данных в таблицу
         self.populate_table()
 
         # Подключение обработчика двойного клика
         self.table_widget.itemDoubleClicked.connect(self.show_account_graph)
 
     def populate_table(self):
-        # Здесь вы можете добавить логику загрузки данных из вашей базы данных в таблицу
-        # Просто для примера, я использую фиктивные данные
+        # фиктивные данные
         data = {'Account ID': [1, 2, 3], 'Balance': [1000, 1500, 800]}
         df = pd.DataFrame(data)
 
@@ -42,7 +41,7 @@ class BettingApp(QMainWindow):
     def show_account_graph(self, item):
         account_id = int(self.table_widget.item(item.row(), 0).text())
 
-        # Получение данных ставок из базы данных по account_id (замените на свою логику)
+        # Получение данных ставок из базы данных по account_id
         bets_data = self.get_bets_data(account_id)
 
         # Расчет баланса после каждой ставки
@@ -53,9 +52,7 @@ class BettingApp(QMainWindow):
         self.plot_account_balance(bets_data)
 
     def get_bets_data(self, account_id):
-        # Здесь должен быть ваш код для получения данных ставок из базы данных по account_id
-        # Вам нужно создать и вернуть DataFrame на основе этих данных
-        # Просто для примера, я использую фиктивные данные
+        # фиктивные данные
         data = {'bet_amount': [100, 200, 50], 'result': [20, -50, 30]}
         df = pd.DataFrame(data)
         return df
